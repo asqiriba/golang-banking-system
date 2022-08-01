@@ -13,11 +13,11 @@ jobs:
 
     services:
       postgres:
-        image: postgres:14-alpine
+        image: postgres:13-alpine
         env:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: postgres
+          POSTGRES_USER: root
+          POSTGRES_PASSWORD: secret
+          POSTGRES_DB: simple_bank
         ports:
           - 5432:5432
         options: >-
@@ -39,7 +39,7 @@ jobs:
         run: |
           curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
           sudo mv migrate.linux-amd64 /usr/bin/migrate
-          which migrate
+
       - name: Run migrations
         run: make migrateup
 
