@@ -3,5 +3,5 @@ packages:
   - path: "./database/sqlc"
     name: "db"
     engine: "postgresql"
-    schema: "./database/migration"
+    schema: "./database/migration/"
     queries: "./database/query/"
