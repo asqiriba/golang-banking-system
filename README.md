@@ -4,13 +4,13 @@ Create and manage bank accounts and money transactions.
 
 ## Installation
 
-We launch a local image of Postgres
+We launch an image of Postgres locally.
 
 ```bash
 make postgres
 ```
 
-Then, we run the migration script (Install from [here](https://github.com/golang-migrate/migrate/tree/master/cmd/migrate))
+Then, we run the migration script (Install from [here](https://github.com/golang-migrate/migrate/tree/master/cmd/migrate)).
 
 ```bash
 make createdb
@@ -60,14 +60,27 @@ Table transfers {
 }
 ```
 
-We create the migration scripts for the database schema.
+Create the migration scripts for the database schema.
 
 ```bash
 migrate create -ext sql -dir db/migration -seq init_schema
 ```
 
-SSH into the Postgres image and run the following commands to create the database.
+## CRUD using [SQLC](https://docs.sqlc.dev/en/latest/overview/install.html)
 
 ```bash
-createdb --username=root --owner=root simple_bank
+sqlc init
+```
+
+After populating your `sqlc.yaml` file and putting some queries under ./db/query.
+
+```bash
+make sqlc
+```
+
+To get rid of the red error lines, create a module for the project.
+
+```bash
+go mod init github.com/asqiriba/golang-banking-system
+go mod tidy
 ```
