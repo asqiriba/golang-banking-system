@@ -84,3 +84,9 @@ To get rid of the red error lines, create a module for the project.
 go mod init github.com/asqiriba/golang-banking-system
 go mod tidy
 ```
+
+## Run Unit Tests
+
+```bash
+make test
+```
