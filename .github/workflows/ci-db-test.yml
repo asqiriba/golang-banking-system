@@ -7,7 +7,8 @@ on:
     branches: ["master"]
 
 jobs:
-  build:
+  db-test:
+  name: db-test
     runs-on: ubuntu-latest
 
     services:
@@ -35,12 +36,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          curl -L https://github.com/golang-migrate/migrate/releases/download/v4.15.2/migrate.darwin-amd64.tar.gz | tar xvz
-          sudo mv migrate /usr/bin/
+          curl -L https://github.com/golang-migrate/migrate/releases/download/v4.14.1/migrate.linux-amd64.tar.gz | tar xvz
+          sudo mv migrate.linux-amd64 /usr/bin/migrate
 
       - name: Run Migration
         run: |
-          which migrate
           make migrateup
 
       - name: Test
