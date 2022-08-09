@@ -7,7 +7,7 @@ on:
     branches: ["master"]
 
 jobs:
-  db-test:
+  build:
   name: db-test
     runs-on: ubuntu-latest
 
