@@ -5,3 +5,4 @@ packages:
     engine: "postgresql"
     schema: "./db/migration"
     queries: "./db/query"
+    emit_empty_slices: true
