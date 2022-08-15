@@ -6,3 +6,4 @@ packages:
     schema: "./db/migration"
     queries: "./db/query"
     emit_empty_slices: true
+    emit_interface: true
