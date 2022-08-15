@@ -8,8 +8,8 @@ import (
 
 // Declares all operations that can be performed on the database.
 type Store interface {
-	*Queries
-	db *sql.DB
+	Querier
+	TransferTX(ctx context.Context, arg TransferTxParams) (TransferTxResult, error)
 }
 
 type SQLStore struct {
